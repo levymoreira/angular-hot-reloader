@@ -11,10 +11,20 @@ var argv = require('yargs').argv;
 var standardWebpackConf = require('./webpack.common.config.js');
 var webpackConf = Object.assign({}, standardWebpackConf);
 
+/**
+To test the local version:
+
 var componentHotLoader = require.resolve('../loaders/component-loader');
 var serviceHotLoader = require.resolve('../loaders/service-loader');
 var jadeHotLoader = require.resolve('../loaders/jade-loader');
+**/
 
+/**
+To test the github master version
+**/
+var componentHotLoader = require.resolve('angular-hot-reloader/loaders/component-loader');
+var serviceHotLoader = require.resolve('angular-hot-reloader/loaders/service-loader');
+var jadeHotLoader = require.resolve('angular-hot-reloader/loaders/jade-loader');
 
 // add componentHotLoader and serviceLoader
 (webpackConf.module.preLoaders = webpackConf.module.preLoaders || []).push(
